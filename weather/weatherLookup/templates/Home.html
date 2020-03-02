@@ -2,4 +2,12 @@
 
 {% block content %}
 <h1>Hello</h1>
+<br/>
+
+<script type="text/javascript"> 
+raw = {{ api.properties.periods|safe }};
+
+console.log(raw);
+</script>
+
 {% endblock %}
