@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Fenrir\Documents\Github\djangoWeather\virtenv"
+VIRTUAL_ENV="C:\Users\TSlivensky\Documents\GitHub\djangoWeather\virtenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

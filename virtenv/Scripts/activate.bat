@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Fenrir\Documents\Github\djangoWeather\virtenv
+set VIRTUAL_ENV=C:\Users\TSlivensky\Documents\GitHub\djangoWeather\virtenv
 
 if not defined PROMPT set PROMPT=$P$G
 
