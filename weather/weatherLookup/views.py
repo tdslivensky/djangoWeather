@@ -16,15 +16,29 @@ def Home(request):
 	        return {convert(key):convert(value) for key, value in obj.items()}
 	    return obj
 
-	apiTemperature = requests.get("https://api.weather.gov/gridpoints/EWX/157,96/forecast")
-	try:
-		api = json.loads(apiTemperature.content)
-		api = convert(api)
-	except Exception as e:
-		api = 'No information returned by api'
+	totalWeather = requests.get("https://api.weather.gov/points/30.4036,-97.701")
 	
-	temperature = api.properties.periods[0]	
-	return render(request, 'Home.html', {'api': api, 'today': temperature})
+	try:
+		apiTotalWeather = json.loads(totalWeather.json())
+		apiTotalWeather = convert(apiTotalWeather)
+	except Exception as e:
+		apiTotalWeather = 'No information returned by apiTotalWeather'
+		
+	forecast = requests.get(apiTotalWeather.properties.forecast)
+	hourlyForecast =  requests.get(apiTotalWeather.properties.forecastHourly)
+	try:
+		apiForecast = json.loads(forecast.content)
+		apiForecast = convert(apiForecast)
+	except Exception as e:	
+		apiForecast = 'No information returned by apiForecast'
+		
+	try:
+		apiHourlyForcast = json.loads(hourlyForecast.content)
+		apiHourlyForcast = convert(apiHourlyForcast)
+	except Exception as e:	
+		apiHourlyForcast = 'No information returned by apiHourlyForcast'	
+		
+	return render(request, 'Home.html', {'totalWeather': apiTotalWeather, 'forecast': apiForecast, 'hourlyForecast': apiHourlyForcast})
 
 def about(request):
 	return render(request, 'about.html', {})
