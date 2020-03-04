@@ -5,9 +5,8 @@
 <br/>
 
 <script type="text/javascript"> 
-raw = {{ api.properties.periods|safe }};
-
-console.log(raw);
+	data = {{ api.properties.periods|safe }};
+	console.log(data);	
 </script>
 
 {% endblock %}

@@ -22,7 +22,9 @@ def Home(request):
 		api = convert(api)
 	except Exception as e:
 		api = 'No information returned by api'
-	return render(request, 'Home.html', {'api': api})
+	
+	temperature = api.properties.periods[0]	
+	return render(request, 'Home.html', {'api': api, 'today': temperature})
 
 def about(request):
 	return render(request, 'about.html', {})
