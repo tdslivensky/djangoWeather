@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+</head>
 <h1>Hello</h1>
 <br/>
 
 <script type="text/javascript"> 
-	data = {{ totalWeather|safe }};
-	console.log(data);	
+	total = {{ totalWeather|safe }};
+	forecast = {{ forecast|safe }};
+	hourlyForecast = {{ hourlyForecast|safe }};
+	console.log(total);
+	console.log(forecast);
+	console.log(hourlyForecast);
+	
+	
 </script>
 
 {% endblock %}
