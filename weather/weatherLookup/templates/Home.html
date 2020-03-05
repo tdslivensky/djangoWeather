@@ -6,15 +6,16 @@
 <h1>Hello</h1>
 <br/>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
+	//assign JSON data to a js variable 
 	total = {{ totalWeather|safe }};
 	forecast = {{ forecast|safe }};
 	hourlyForecast = {{ hourlyForecast|safe }};
+	
+	//log data to the console for testing
 	console.log(total);
 	console.log(forecast);
 	console.log(hourlyForecast);
-	
-	
 </script>
 
 {% endblock %}
