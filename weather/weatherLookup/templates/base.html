@@ -24,9 +24,10 @@
 	      </li>
 
 	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search by ZipCode" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search by ZipCode</button>
+	    <form action="{% url 'Home' %}" class="form-inline my-2 my-lg-0" method="POST">
+	    	{% csrf_token %}
+	      <input class="form-control mr-sm-2" type="search" placeholder="Search by ZipCode" aria-label="Search" name="zipCode">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Lookup ZipCode</button>
 	    </form>
 	  </div>
 	</nav>
