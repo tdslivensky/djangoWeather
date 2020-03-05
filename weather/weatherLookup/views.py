@@ -1,9 +1,26 @@
 from django.shortcuts import render
+# pip install uszipcode
+from uszipcode import Zipcode
 
 # Create your views here.
 def Home(request):
 	import json 
 	import requests
+	search = SearchEngine(simple_zipcode=True)
+	#reference website for zip finder: https://pypi.org/project/uszipcode/
+	#other reference for zip finder: https://uszipcode.readthedocs.io/01-Tutorial/index.html#basic-search
+	
+	#replace by django forms input
+	zipCodeRawInformation = search.by_zipcode("78758")
+	
+	zipCode =  zipCodeRawInformation.to_dict()
+	
+	#new api
+	#latitude = zipCode["lat"]
+	#longitude = zipCode["lng"]
+	#totalWeather = requests.get("https://api.weather.gov/points/" + str(latitude) + "," + str(longitude))
+	
+	#call the entire api
 	totalWeather = requests.get("https://api.weather.gov/points/30.4036,-97.701")
 	
 	try:
